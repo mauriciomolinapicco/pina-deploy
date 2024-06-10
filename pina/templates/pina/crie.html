@@ -1,0 +1,53 @@
+{% extends "pina/layout.html" %}
+
+{% block title %}Crie conosoco{% endblock %}
+
+{%block body%}
+
+      <section class="banner-crie">
+        <div class="div-banner-crie">
+          <h1><span>A Piná começou com uma artista.</span></h1>
+        </div>
+        <div class="div-crie">
+          <p>
+            Valorizamos a jornada daqueles que vivem para criar e deixar o mundo
+            mais colorido e cheio de design. Acreditamos no potencial que reside
+            em grandes ideias e em trocas cheias de significado. Seja bem-vindo
+            à Piná! Esperamos, verdadeiramente, que a gente possa criar projetos
+            incríveis juntos.
+          </p>
+        </div>
+        <div class="div-crie-cafe m-14">
+          <h2 class="flex justify-center items-center">Pegue seu café e sinta-se em casa...</h2>
+          
+        </div>
+
+        <div class="formulario-crie circulo">
+          <p></p>
+          <h2 class="px-6 py-6">Faça seu cadastro</h2>
+          <form
+            class=""
+            action="{% url 'crie_form' %}" 
+            method="post" 
+            enctype="multipart/form-data">
+
+            {% csrf_token %}
+              <input name="nome" id="input-crie" type="text" placeholder="Nome" required>
+              <input name="email" class="input-form" type="email" placeholder="Email" required>
+              <input name="telefone" type="tel" name="numero" placeholder="Telefone">
+              <br>
+              <label for="">Conte um pouco sobre vc</label>
+              <textarea name="messagem" rows="4" cols="50" required></textarea>
+              <input name="link" type="text" placeholder="Link do Portfolio">
+              <p class="text-center">Ou faça upload</p>
+              
+              <input type="file" name="file" class="border border-white">
+              <input type="submit" name="Enviar">
+          </form>
+      </div>      
+
+      </section>
+      
+    </main>
+  {% endblock %}
+</html>

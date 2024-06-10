@@ -1,0 +1,186 @@
+{% extends "pina/layout.html" %}
+
+{% block title %}Pina - Home{% endblock %}
+
+{%block body%}
+
+  <main>
+    <section class="banner">
+      {% if messages %}
+        {% for message in messages %}
+        <div id="toast-success" class="toast-success flex items-center justify-between w-full max-w-md p-4 mb-4 text-gray-500 bg-green-600 rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
+          <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
+              <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
+              </svg>
+              <span class="sr-only">Check icon</span>
+          </div>
+          <div class="text-white ms-3 text-lg font-normal">{{ message }}</div>
+          <button type="button" class="text-white hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" data-dismiss-target="#toast-success" aria-label="Close" onclick="closeToast()">
+              <span class="sr-only">Close</span>
+              <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+              </svg>
+          </button>
+        </div>
+        {% endfor %}
+      {% endif %}
+
+
+
+      <h1>
+        <span>art<br />design<br />creativity</span>
+      </h1>
+      <a
+      href="{% url 'portfolio' %}"
+      ><button class="botaoPrincipal"><b>Conheça nosso portfólio</b></button></a
+    >
+    </section>
+    <section class="mosaico-home">
+      <img
+        src="./../static/img/mosaico-home.png"
+        alt="Mosaico de portfólio Piná"
+        class="image-home-grande"
+      />
+      <img
+        src="./../static/img/mosaico-home-pequena.png"
+        alt="Mosaico de portfólio Piná"
+        class="image-home-pequena"
+      />
+    </section>
+    <section class="sessao-home-criatividade">
+      <h2>
+        A criatividade <br />
+        como solução.
+      </h2>
+      <p class="px-5 px-md-0">
+        A Piná é um estúdio criativo que usa a e o design <br />
+        para desenvolver soluções inteligentes de comunicação.
+      </p>
+      <a href="{% url 'portfolio' %}" class="botao">Conheça nosso portfólio</a>
+    </section>
+    <section class="mosaico-home-dados">
+      <img
+        src="./../static/img/mosaico-home-dados.png"
+        alt="Conheça a Piná"
+        class="image-mosaico-grande"
+      />
+      <img 
+        src="./../static/img/mosaico-home-dados-mobile.png" 
+        alt="Conheça a Piná"
+        class="image-mosaico-pequena">
+
+    </section>
+    <section class="servicos-container">
+      <div class="servicos-banner">
+        <img src="./../static/img/bola-banner.png" 
+          alt="Queremos contar sua historia"/>
+      </div>
+      <div class="colunas-container">
+        <div class="coluna" style="padding-top: 20px">
+          <h3>Branding</h3>
+          <p>
+            Construção de marcas desde a concepção do nome até a identidade
+            visual, verbal e sensorial.
+          </p>
+          <a href="{% url 'portfolio' %}#section-branding-portfolio" class="link"
+            ><u>Saiba mais</u></a
+          >
+        </div>
+        <div class="coluna">
+          <h3>Ideação</h3>
+          <p>
+            Processo criativo que se vale de metodologias específicas para
+            geração de novas ideias e soluções.
+          </p>
+          <a
+            href="{% url 'portfolio' %}#section-posicionamento-portfolio"
+            class="link"
+            ><u>Saiba mais</u></a
+          >
+        </div>
+        <div class="coluna">
+          <h3>Audiovisual</h3>
+          <p>
+            Captação de fotos e vídeos com direcionamento de arte, roteiro,
+            produção e edição.
+          </p>
+          <a href="{% url 'portfolio' %}#section-audiovisual-portfolio" class="link"
+            ><u>Saiba mais</u></a
+          >
+        </div>
+        <div class="coluna">
+          <h3>Design</h3>
+          <p>
+            Estratégias visuais e de design para posicionamento em canais
+            digitais.
+          </p>
+          <br>
+          <a href="{% url 'portfolio' %}#section-ideacao-portfolio" class="link"
+            ><u>Saiba mais</u></a
+          >
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <script src="./../../static/js/index.js"></script>
+  {%endblock%}
+
+  <!-- <script>
+    const menu = document.querySelector(".menu");
+    const menuItems = document.querySelectorAll(".menuItem");
+    const hamburger = document.querySelector(".hamburger");
+    const closeIcon = document.querySelector(".closeIcon");
+    const menuIcon = document.querySelector(".menuIcon");
+
+    function toggleMenu() {
+      if (menu.classList.contains("showMenu")) {
+        menu.classList.remove("showMenu");
+        closeIcon.style.display = "none";
+        menuIcon.style.display = "block";
+      } else {
+        menu.classList.add("showMenu");
+        closeIcon.style.display = "block";
+        menuIcon.style.display = "none";
+      }
+    }
+
+    hamburger.addEventListener("click", toggleMenu);f
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document
+        .querySelector(".formulario")
+        .addEventListener("submit", function (e) {
+          e.preventDefault(); // Previne o comportamento padrão de submissão.
+          // Coleta os dados do formulário.
+          var formData = new FormData();
+          formData.append("nome", document.getElementById("nome").value);
+          formData.append("empresa", document.getElementById("empresa").value);
+          formData.append("email", document.getElementById("email").value);
+          formData.append(
+            "telefone",
+            document.getElementById("telefone").value
+          );
+
+          console.log(formData);
+
+          // Envia os dados para o servidor.
+          fetch("/send-email", {
+            // Substitua '/send-email' pela sua URL de backend.
+            method: "POST",
+            body: formData,
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log(data);
+              alert("E-mail enviado com sucesso!"); // Mensagem de sucesso.
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+              alert("Erro ao enviar e-mail."); // Mensagem de erro.
+            });
+        });
+    });
+  </script> -->
