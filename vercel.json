@@ -1,13 +1,13 @@
 {
     "builds": [{
-        "src": "pina-project/wsgi.py",
+        "src": "pina_project/wsgi.py",
         "use": "@vercel/python",
         "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
     }],
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "pina-project/wsgi.py"
+            "dest": "pina_project/wsgi.py"
         }
     ]
 }
