@@ -1,5 +1,5 @@
 {% extends "pina/layout.html" %}
-
+{% load static %}
 {% block title %}Pina - Home{% endblock %}
 
 {%block body%}
@@ -38,12 +38,12 @@
     </section>
     <section class="mosaico-home">
       <img
-        src="./../static/img/mosaico-home.png"
+        src="{% static 'img/mosaico-home.png' %}"
         alt="Mosaico de portfólio Piná"
         class="image-home-grande"
       />
       <img
-        src="./../static/img/mosaico-home-pequena.png"
+        src="{% static 'img/mosaico-home-pequena.png' %}"
         alt="Mosaico de portfólio Piná"
         class="image-home-pequena"
       />
@@ -61,19 +61,19 @@
     </section>
     <section class="mosaico-home-dados">
       <img
-        src="./../static/img/mosaico-home-dados.png"
+        src="{% static 'img/mosaico-home-dados.png' %}"
         alt="Conheça a Piná"
         class="image-mosaico-grande"
       />
       <img 
-        src="./../static/img/mosaico-home-dados-mobile.png" 
+        src="{% static 'img/mosaico-home-dados-mobile.png' %}"
         alt="Conheça a Piná"
         class="image-mosaico-pequena">
 
     </section>
     <section class="servicos-container">
       <div class="servicos-banner">
-        <img src="./../static/img/bola-banner.png" 
+        <img src="{% static 'img/bola-banner.png' %}"
           alt="Queremos contar sua historia"/>
       </div>
       <div class="colunas-container">
@@ -124,7 +124,7 @@
     </section>
   </main>
   
-  <script src="./../../static/js/index.js"></script>
+  <script src="{% static 'js/index.js' %}"></script>
   {%endblock%}
 
   <!-- <script>
